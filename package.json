@@ -7,7 +7,7 @@
     "postinstall": "prisma generate",
     "dev": "nodemon aapi/pp.js",
     "start": "node api/app.js",
-    "build":"npm install && npm install --prefix client && npm run build --prefix client",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client",
     "socket": "node socket/app.js"
   },
   "keywords": [],
@@ -27,5 +27,8 @@
   },
   "engines": {
     "node": ">=18.18.0 <19.0.0"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
   }
 }
