@@ -2,14 +2,9 @@ import { Server } from "socket.io";
 
 const io = new Server({
   cors: {
-    origin: "https://realestate-new.onrender.com/",
+    origin: process.env.CLIENT_URL,
   },
 });
-// const io = new Server({
-//   cors: {
-//     origin: "process.env.CLIENT_URL",
-//   },
-// });
 
 let onlineUser = [];
 
@@ -29,7 +24,7 @@ const getUser = (userId) => {
 };
 
 io.on("connection", (socket) => {
-  console.log(socket.id);
+  console.log(socket.id)
   socket.on("newUser", (userId) => {
     addUser(userId, socket.id);
   });
