@@ -167,12 +167,19 @@ function HomePage() {
               {statistics.map((statistic, index) => (
                 <div key={index} className="bg-primary p-4 rounded-lg">
                   <div className="flex items-center gap-1">
-                    {/* <CountUp
-                      start={isVisible ? 0 : null}
+                    <CountUp
+                      start={isVisible ? 0 : 0}
                       end={statistic.value}
-                      duration={10}
-                      delay={3}
+                      duration={3}
                     >
+                      {({ countUpRef }) => (
+                        <h3
+                          ref={countUpRef}
+                          className="text-2xl font-semibold"
+                        />
+                      )}
+                    </CountUp>
+                    {/* <CountUp start={0} end={statistic.value} duration={3}>
                       {({ countUpRef }) => (
                         <h3
                           ref={countUpRef}
@@ -180,14 +187,6 @@ function HomePage() {
                         ></h3>
                       )}
                     </CountUp> */}
-                    <CountUp start={0} end={statistic.value} duration={3}>
-                      {({ countUpRef }) => (
-                        <h3
-                          ref={countUpRef}
-                          className="text-2xl font-semibold"
-                        ></h3>
-                      )}
-                    </CountUp>
                     <h4 className="font-bold text-2xl">k+</h4>
                   </div>
                   <p>{statistic.label}</p>
