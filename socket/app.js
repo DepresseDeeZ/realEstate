@@ -1,5 +1,10 @@
 import { Server } from "socket.io";
 
+// const io = new Server({
+//   cors: {
+//     origin: "https://estate-hub-omega.vercel.app",
+//   },
+// });
 const io = new Server({
   cors: {
     origin: "http://localhost:5173",
@@ -24,6 +29,7 @@ const getUser = (userId) => {
 };
 
 io.on("connection", (socket) => {
+  console.log(socket.id);
   socket.on("newUser", (userId) => {
     addUser(userId, socket.id);
   });
@@ -39,3 +45,5 @@ io.on("connection", (socket) => {
 });
 
 io.listen("4000");
+
+//this is a test variable please ignore
