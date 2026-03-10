@@ -1,22 +1,17 @@
 import { Server } from "socket.io";
 
-// const io = new Server({
-//   cors: {
-//     origin: "https://estate-hub-omega.vercel.app",
-//   },
-// });
 const io = new Server({
   cors: {
-    origin: "https://real-estate-omega-five-23.vercel.app/",
-    // origin: "http://localhost:5173",
+    origin: "https://real-estate-omega-five-23.vercel.app",
+    methods: ["GET", "POST"],
   },
 });
 
 let onlineUser = [];
 
 const addUser = (userId, socketId) => {
-  const userExits = onlineUser.find((user) => user.userId === userId);
-  if (!userExits) {
+  const userExists = onlineUser.find((user) => user.userId === userId);
+  if (!userExists) {
     onlineUser.push({ userId, socketId });
   }
 };
@@ -30,14 +25,18 @@ const getUser = (userId) => {
 };
 
 io.on("connection", (socket) => {
-  console.log(socket.id);
+  console.log("User connected:", socket.id);
+
   socket.on("newUser", (userId) => {
     addUser(userId, socket.id);
   });
 
   socket.on("sendMessage", ({ receiverId, data }) => {
     const receiver = getUser(receiverId);
-    io.to(receiver.socketId).emit("getMessage", data);
+
+    if (receiver) {
+      io.to(receiver.socketId).emit("getMessage", data);
+    }
   });
 
   socket.on("disconnect", () => {
@@ -45,6 +44,4 @@ io.on("connection", (socket) => {
   });
 });
 
-io.listen("4000");
-
-//this is a test variable please ignore
+io.listen(4000);
