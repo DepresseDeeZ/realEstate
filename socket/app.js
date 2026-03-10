@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 
 const io = new Server({
   cors: {
-    origin: process.env.CLIENT_URL,
+    origin: "http://localhost:5173",
   },
 });
 
@@ -24,7 +24,6 @@ const getUser = (userId) => {
 };
 
 io.on("connection", (socket) => {
-  console.log(socket.id)
   socket.on("newUser", (userId) => {
     addUser(userId, socket.id);
   });
