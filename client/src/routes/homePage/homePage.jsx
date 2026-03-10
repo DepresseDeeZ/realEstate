@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import aboutImg from "../../assets/about.jpg";
 import CountUp from "react-countup";
-
+import { useInView } from "react-intersection-observer";
 //properties imports
 import { Link } from "react-router-dom";
 
@@ -27,6 +27,10 @@ import List from "../../components/list/List"; // Assuming List component is use
 function HomePage() {
   const [rentListings, setRentListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
   useEffect(() => {
     // Fetch Rent Listings
     const fetchRentListings = async () => {
@@ -163,30 +167,15 @@ function HomePage() {
               repudiandae, quaerat quasi a obcaecati similique.
             </p>
             {/* Statistics Container */}
-            <div className="flex flex-wrap gap-4">
+            <div ref={ref} className="flex flex-wrap gap-4">
               {statistics.map((statistic, index) => (
                 <div key={index} className="bg-primary p-4 rounded-lg">
                   <div className="flex items-center gap-1">
-                    <CountUp
-                      start={isVisible ? 0 : 0}
-                      end={statistic.value}
-                      duration={3}
-                    >
-                      {({ countUpRef }) => (
-                        <h3
-                          ref={countUpRef}
-                          className="text-2xl font-semibold"
-                        />
+                    <h3 className="text-2xl font-semibold">
+                      {inView && (
+                        <CountUp start={0} end={statistic.value} duration={3} />
                       )}
-                    </CountUp>
-                    {/* <CountUp start={0} end={statistic.value} duration={3}>
-                      {({ countUpRef }) => (
-                        <h3
-                          ref={countUpRef}
-                          className="text-2xl font-semibold"
-                        ></h3>
-                      )}
-                    </CountUp> */}
+                    </h3>
                     <h4 className="font-bold text-2xl">k+</h4>
                   </div>
                   <p>{statistic.label}</p>
