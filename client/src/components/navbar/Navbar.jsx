@@ -47,8 +47,18 @@ function Navbar() {
           />
         </div>
         <div className={open ? "menu active" : "menu"}>
-          <a href="/">Sign in</a>
-          <a href="/">Sign up</a>
+          {currentUser ? (
+            <>
+              <Link to="/profile">Profile</Link>
+              <Link to="/profile">Saved</Link>
+              <Link to="/profile">Logout</Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Sign in</Link>
+              <Link to="/register">Sign up</Link>
+            </>
+          )}
         </div>
       </div>
     </nav>
