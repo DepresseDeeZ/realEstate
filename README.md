@@ -231,6 +231,247 @@ EstateHub
 ```
 
 ---
+# 🗄 Database Schema
+
+EstateHub uses **MongoDB with Prisma ORM** to manage relational data between users, properties, chats, and saved listings.
+
+Below is a simplified representation of the database structure.
+
+```
+User
+│
+├ id
+├ email
+├ username
+├ password
+├ avatar
+├ createdAt
+│
+├ posts → Post[]
+├ savedPosts → SavedPost[]
+└ chats → Chat[]
+```
+
+```
+Post
+│
+├ id
+├ title
+├ price
+├ images[]
+├ address
+├ city
+├ bedroom
+├ bathroom
+├ latitude
+├ longitude
+├ type (buy | rent)
+├ property (apartment | house | condo | land)
+├ createdAt
+│
+├ user → User
+├ postDetail → PostDetail
+└ savedPosts → SavedPost[]
+```
+
+```
+PostDetail
+│
+├ id
+├ desc
+├ utilities
+├ pet
+├ income
+├ size
+├ school
+├ bus
+├ restaurant
+│
+└ post → Post
+```
+
+```
+SavedPost
+│
+├ id
+├ userId
+├ postId
+├ createdAt
+│
+├ user → User
+└ post → Post
+```
+
+```
+Chat
+│
+├ id
+├ userIDs[]
+├ users → User[]
+├ seenBy[]
+├ lastMessage
+├ createdAt
+│
+└ messages → Message[]
+```
+
+```
+Message
+│
+├ id
+├ text
+├ userId
+├ chatId
+├ createdAt
+│
+└ chat → Chat
+```
+
+---
+
+# 🔗 Data Relationships
+
+EstateHub maintains several important relationships between models:
+
+### 👤 User → Posts
+
+A user can create multiple property listings.
+
+```
+User 1 ────< Post
+```
+
+---
+
+### ⭐ User → Saved Posts
+
+Users can bookmark properties.
+
+```
+User >───< Post
+   SavedPost
+```
+
+---
+
+### 💬 User → Chat
+
+Users participate in chat conversations.
+
+```
+User >───< Chat
+```
+
+---
+
+### 💬 Chat → Messages
+
+Each chat can contain multiple messages.
+
+```
+Chat 1 ────< Message
+```
+
+---
+
+### 🏠 Post → PostDetail
+
+Each property listing has one detailed information record.
+
+```
+Post 1 ────1 PostDetail
+```
+
+---
+
+# 📊 Database Design Goals
+
+The schema is designed to ensure:
+
+✔ efficient property queries  
+✔ scalable messaging system  
+✔ normalized property detail storage  
+✔ optimized saved-post relationships  
+✔ fast relational lookups with Prisma  
+
+---
+
+# ⚡ Query Optimization
+
+The database design supports efficient operations such as:
+
+• retrieving property listings by city  
+• fetching property details with a single relation query  
+• loading user saved properties  
+• retrieving chat messages efficiently  
+
+Example Prisma query:
+
+```javascript
+const posts = await prisma.post.findMany({
+  include: {
+    postDetail: true,
+    user: true
+  }
+});
+```
+
+---
+
+# 💬 Messaging System Data Flow
+
+The messaging system works with the following models:
+
+```
+User
+  │
+  ▼
+Chat
+  │
+  ▼
+Message
+```
+
+Message creation flow:
+
+```
+User sends message
+      │
+      ▼
+Socket Server
+      │
+      ▼
+Message saved in database
+      │
+      ▼
+Receiver receives message instantly
+```
+
+---
+
+# 🧩 Enum Types
+
+EstateHub uses enums for property categorization.
+
+### Property Type
+
+```
+buy
+rent
+```
+
+### Property Category
+
+```
+apartment
+house
+condo
+land
+```
+
+These enums ensure consistent property classification across the platform.
+
+---
 
 # 🧰 Technology Stack
 
