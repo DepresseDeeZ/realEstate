@@ -1,264 +1,692 @@
-# EstateHub
+# 🏡 EstateHub — Modern Real Estate Platform
+
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Node](https://img.shields.io/badge/node-%3E%3D18-green)
+![React](https://img.shields.io/badge/frontend-react-blue)
+![MongoDB](https://img.shields.io/badge/database-mongodb-green)
+![Socket.io](https://img.shields.io/badge/realtime-socket.io-black)
+![Deployment](https://img.shields.io/badge/deployed-vercel-black)
+
+🌐 **Live Demo**  
+https://real-estate-omega-five-23.vercel.app/
+
+---
+
+# 🚀 About the Project
+
+**EstateHub** is a modern full-stack real estate platform designed to simplify the way users discover, rent, and purchase properties.
+
+The platform allows users to browse listings, explore property locations on maps, interact with property owners, and manage property listings through an intuitive and responsive interface.
+
+This project was built to demonstrate **production-level full-stack architecture**, combining modern frontend technologies with scalable backend services and real-time communication.
+
+The platform integrates:
+
+- Modern frontend development using **React + Vite**
+- Scalable backend architecture using **Node.js and Express**
+- Cloud-hosted database with **MongoDB**
+- Real-time messaging using **Socket.io**
+- Cloud media management using **Cloudinary**
+
+---
+
+# 🎬 Live Project Demo
+
+🔗 **Visit the Live Application**
 
 https://real-estate-omega-five-23.vercel.app/
 
-Welcome to **EstateHub**! This project aims to create a dynamic and user-friendly online platform for property listings and transactions. EstateHub is designed to cater to real estate agents, property sellers, and potential buyers or renters, providing an intuitive interface for seamless interaction.
+The demo showcases the full capabilities of the platform including:
 
-## Step-by-Step Development
+- Property browsing
+- Property search and filtering
+- Real-time messaging
+- Property detail views
+- Interactive maps
+- User authentication
 
-### 1. **Project Setup**
-1. **Repository Initialization**:
-   - Created a new GitHub repository named `EstateHub`.
-   - Cloned the repository to the local machine using:
-     ```bash
-     git clone https://github.com/yourusername/estatehub.git
-     ```
+---
 
-2. **Directory Structure**:
-   - Structured the project with two main directories:
-     - `frontend`: For React-based user interface.
-     - `backend`: For Node.js and Express-based server-side logic.
+# ✨ Key Features
 
-3. **Environment Setup**:
-   - Installed **Node.js** and npm on the system.
-   - Initialized `package.json` in both `frontend` and `backend` directories:
-     ```bash
-     npm init -y
-     ```
-   - Set up `.gitignore` to exclude `node_modules`, `.env`, and other sensitive files.
+## 🏠 Property Listings
 
+Users can explore a wide variety of property listings categorized into:
 
-### 2. **Frontend Development**
-1. **Bootstrapping**:
-   - Created a React application using:
-     ```bash
-     npx create-react-app frontend
-     cd frontend
-     ```
+- Rental properties
+- Properties available for purchase
 
-2. **Installing Dependencies**:
-   - Added essential libraries for the project:
-     ```bash
-     npm install react-router-dom axios tailwindcss formik yup leaflet react-leaflet
-     ```
+Each listing includes:
 
-3. **Configuring Tailwind CSS**:
-   - Installed and set up Tailwind CSS:
-     ```bash
-     npm install -D tailwindcss postcss autoprefixer
-     npx tailwindcss init
-     ```
-   - Updated the `tailwind.config.js` file with custom paths.
-   - Integrated Tailwind CSS into `index.css`:
-     ```css
-     @tailwind base;
-     @tailwind components;
-     @tailwind utilities;
-     ```
+- Property images
+- Price information
+- Property description
+- Location
+- Amenities
+- Property specifications
 
-4. **Building Components**:
-   - Created reusable components:
-     - **Navbar**: Responsive navigation with links to home, search, and user profile.
-     - **Footer**: Contact information and subscription options.
-     - **SearchBar**: Advanced search functionality with filters.
-   - Built key pages:
-     - **HomePage**: Hero section, featured listings, and call-to-action banners.
-     - **ListingPage**: Property search results with filters and sorting.
-     - **AgentProfile**: Display agent details and their active property listings.
-     - **PropertyDetailPage**: Show detailed information, images, and contact options.
+---
 
-5. **Map Integration**:
-   - Integrated `Leaflet` for interactive maps:
-     ```bash
-     npm install leaflet react-leaflet
-     ```
-   - Displayed property locations using map markers.
+## 🔎 Advanced Property Search
 
+The platform allows users to search and filter properties based on:
 
-### 3. **Backend Development**
-1. **Setting Up Node.js and Express**:
-   - Installed backend dependencies:
-     ```bash
-     npm install express mongoose dotenv body-parser cors jsonwebtoken bcryptjs
-     ```
+- Property type (rent / buy)
+- Location
+- Price range
+- Property size
+- Amenities
 
-2. **Database Configuration**:
-   - Installed and set up MongoDB:
-     - Created schemas using Mongoose:
-       - **User**: For user authentication and roles.
-       - **Property**: For property listings with location, price, and amenities.
-       - **Agent**: For agent profiles and linked properties.
-   - Connected to the database using:
-     ```javascript
-     const mongoose = require('mongoose');
-     mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-     ```
+This improves user experience by helping users quickly find properties that match their requirements.
 
-3. **Authentication**:
-   - Implemented secure authentication using **JWT**:
-     - Created login and registration routes.
-     - Enforced middleware for protected routes.
+---
 
-4. **API Endpoints**:
-   - Designed RESTful APIs for:
-     - **Users**: Registration, login, and profile management.
-     - **Properties**: CRUD operations on property listings.
-     - **Agents**: Viewing and managing agent profiles.
-     - **Reviews**: Submitting and viewing user feedback.
+## 🗺 Interactive Map Integration
 
-5. **Real-Time Communication**:
-   - Integrated `Socket.io` for chat functionality:
-     ```bash
-     npm install socket.io
-     ```
-   - Enabled real-time messaging between users and agents/landlords.
+EstateHub integrates **Leaflet Maps** to display property locations visually.
 
+Users can:
 
-### 4. **Integration**
-1. **Connecting Frontend and Backend**:
-   - Used **Axios** for API communication.
-   - Set up `proxy` in the frontend `package.json` to avoid CORS issues.
-   - Created reusable API service files for modular code.
+- View property locations on a map
+- Understand nearby areas
+- Explore neighborhood locations
 
-2. **Testing**:
-   - Tested APIs using **Postman**.
-   - Verified seamless interaction between frontend and backend.
+---
 
-3. **Performance Optimization**:
-   - Lazy-loaded components to improve loading speed.
-   - Optimized database queries using Prisma for efficient data retrieval.
+## 💬 Real-Time Messaging
 
+The platform includes a real-time messaging system that allows direct communication between users and property owners.
 
-### 5. **Media Management**
-- Integrated **Cloudinary** for image and video uploads:
-  - Configured API keys in `.env` file.
-  - Allowed users to upload property images via frontend forms.
+Features include:
 
-### 6. **Final Testing and Feedback**
-- Conducted cross-browser testing to ensure compatibility.
-- Collected feedback for iterative improvements.
-- Fixed minor bugs and optimized UI/UX based on user input.
+- Instant message delivery
+- Real-time updates
+- Conversation tracking
 
+This functionality is powered by **Socket.io**.
 
-## Summary
-EstateHub was developed as a robust and scalable platform for real estate transactions. It combines advanced search filters, real-time communication, and responsive design to offer a seamless user experience. The project is fully deployed and ready for users.
+---
 
-For further details, refer to the full documentation included in the repository.
+## 🔐 Secure Authentication
 
+EstateHub includes a secure authentication system using **JWT tokens**.
 
-## Table of Contents
+Features include:
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Technological Stack](#technological-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Credits & License](#credits--license)
-- [Contact](#contact)
+- User registration
+- Secure login
+- Password hashing using bcrypt
+- Protected API routes
 
-## Project Overview
+---
 
-EstateHub will feature advanced search filters, interactive maps, detailed property listings, user reviews, agent profiles, and contact forms. It is built using modern web development practices to ensure a responsive and engaging user experience.
+## 🖼 Cloud Image Storage
 
-## Features
+Property images are uploaded and stored using **Cloudinary**.
 
-- **Advanced Search Filters**: Search for properties by location, price, type, and amenities.
-- **Interactive Maps**: Use Mapbox and React Leaflet to view property locations and nearby amenities.
-- **Detailed Property Listings**: Display comprehensive details, images, and features of properties.
-- **User Reviews**: Allow users to read and submit reviews for properties and agents.
-- **Agent Profiles**: Showcase real estate agents with their profiles, contact information, and listings.
-- **Contact Forms**: Provide forms for inquiries and appointments.
+Benefits include:
 
-## Technological Stack
+- fast image delivery
+- scalable storage
+- optimized media management
 
-### Frontend
+---
 
-- **React.js**: A JavaScript library for building user interfaces, providing a dynamic and responsive user experience.
-- **React Router**: Handles navigation within the application, enabling seamless page transitions.
-- **Tailwind CSS**: A utility-first CSS framework for creating custom designs quickly and efficiently.
-- **Axios**: A promise-based HTTP client for making API requests from the frontend.
-- **Formik/Yup**: Tools for handling form state and validation in React applications.
-- **Leaflet**: An open-source library for interactive maps, used with React for displaying property locations.
+# 📸 Application Screenshots
 
-### Backend
+## 🏠 Homepage
 
-- **Node.js**: A JavaScript runtime for building scalable server-side applications.
-- **Express.js**: A web application framework for Node.js, used to build the RESTful API.
-- **Prisma**: An ORM (Object-Relational Mapping) tool for working with databases in a type-safe manner.
-- **MongoDB**: A NoSQL database for storing property listings and user data.
-- **Mongoose**: An ODM (Object Data Modeling) library for MongoDB, facilitating schema-based data modeling.
-- **JWT (JSON Web Tokens)**: Used for secure authentication and protecting API endpoints.
-- **Socket.io**: A library for real-time web applications, enabling features like chat.
+![Homepage](https://github.com/user-attachments/assets/2047a500-90b6-4c42-ad1f-1d05c6eddebb)
 
-### Other Technologies
+The homepage introduces users to the platform and includes:
 
-- **Cloudinary**: A cloud service for image and video management, used for handling property images.
-- **Git**: A version control system for tracking changes and collaboration.
-- **Vercel**: A platform for deploying and hosting the frontend application.
-- **Heroku**: A platform for deploying and managing the backend server.
+- property search bar
+- featured listings
+- statistics
+- informational sections
 
-## Installation
+---
 
-To get started with EstateHub, clone the repository and install the required dependencies:
+## 🏘 Property Listings
 
-```bash
-git clone https://github.com/yourusername/estatehub.git
+![Listings](https://github.com/user-attachments/assets/f88a91a5-84cc-44e8-8086-7da9f700f4c7)
+
+Users can browse available properties categorized by rental and sale listings.
+
+Each property card displays:
+
+- property image
+- price
+- location
+- quick overview
+
+---
+
+## 📄 Property Details
+
+![Property Details](https://github.com/user-attachments/assets/6fda5663-7af5-47d1-8e89-501609a209da)
+Detailed property pages include:
+
+- property gallery
+- property description
+- amenities
+- location map
+- contact options
+
+---
+
+# 🧠 System Architecture
+
+EstateHub follows a **client-server architecture**.
+
+```
+Client (React + Vite)
+        │
+        │ Axios API Requests
+        ▼
+Backend API (Node.js + Express)
+        │
+        │ Prisma ORM
+        ▼
+MongoDB Database
+        │
+        ▼
+Socket Server (Real-time messaging)
+```
+
+Additional services:
+
+- Cloudinary (media storage)
+- Vercel (frontend hosting)
+
+---
+
+# 📁 Project Structure
+
+```
+EstateHub
+│
+├── api
+│   ├── controllers
+│   ├── routes
+│   ├── middleware
+│   ├── prisma
+│   ├── lib
+│   ├── app.js
+│   ├── seedPosts.js
+│   └── package.json
+│
+├── client
+│   ├── src
+│   ├── public
+│   ├── index.html
+│   ├── tailwind.config.js
+│   └── package.json
+│
+├── socket
+│   ├── app.js
+│   └── package.json
+│
+└── README.md
+```
+
+---
+# 🗄 Database Schema
+
+EstateHub uses **MongoDB with Prisma ORM** to manage relational data between users, properties, chats, and saved listings.
+
+Below is a simplified representation of the database structure.
+
+```
+User
+│
+├ id
+├ email
+├ username
+├ password
+├ avatar
+├ createdAt
+│
+├ posts → Post[]
+├ savedPosts → SavedPost[]
+└ chats → Chat[]
+```
+
+```
+Post
+│
+├ id
+├ title
+├ price
+├ images[]
+├ address
+├ city
+├ bedroom
+├ bathroom
+├ latitude
+├ longitude
+├ type (buy | rent)
+├ property (apartment | house | condo | land)
+├ createdAt
+│
+├ user → User
+├ postDetail → PostDetail
+└ savedPosts → SavedPost[]
+```
+
+```
+PostDetail
+│
+├ id
+├ desc
+├ utilities
+├ pet
+├ income
+├ size
+├ school
+├ bus
+├ restaurant
+│
+└ post → Post
+```
+
+```
+SavedPost
+│
+├ id
+├ userId
+├ postId
+├ createdAt
+│
+├ user → User
+└ post → Post
+```
+
+```
+Chat
+│
+├ id
+├ userIDs[]
+├ users → User[]
+├ seenBy[]
+├ lastMessage
+├ createdAt
+│
+└ messages → Message[]
+```
+
+```
+Message
+│
+├ id
+├ text
+├ userId
+├ chatId
+├ createdAt
+│
+└ chat → Chat
+```
+
+---
+
+# 🔗 Data Relationships
+
+EstateHub maintains several important relationships between models:
+
+### 👤 User → Posts
+
+A user can create multiple property listings.
+
+```
+User 1 ────< Post
+```
+
+---
+
+### ⭐ User → Saved Posts
+
+Users can bookmark properties.
+
+```
+User >───< Post
+   SavedPost
+```
+
+---
+
+### 💬 User → Chat
+
+Users participate in chat conversations.
+
+```
+User >───< Chat
+```
+
+---
+
+### 💬 Chat → Messages
+
+Each chat can contain multiple messages.
+
+```
+Chat 1 ────< Message
+```
+
+---
+
+### 🏠 Post → PostDetail
+
+Each property listing has one detailed information record.
+
+```
+Post 1 ────1 PostDetail
+```
+
+---
+
+# 📊 Database Design Goals
+
+The schema is designed to ensure:
+
+✔ efficient property queries  
+✔ scalable messaging system  
+✔ normalized property detail storage  
+✔ optimized saved-post relationships  
+✔ fast relational lookups with Prisma  
+
+---
+
+# ⚡ Query Optimization
+
+The database design supports efficient operations such as:
+
+• retrieving property listings by city  
+• fetching property details with a single relation query  
+• loading user saved properties  
+• retrieving chat messages efficiently  
+
+Example Prisma query:
+
+```javascript
+const posts = await prisma.post.findMany({
+  include: {
+    postDetail: true,
+    user: true
+  }
+});
+```
+
+---
+
+# 💬 Messaging System Data Flow
+
+The messaging system works with the following models:
+
+```
+User
+  │
+  ▼
+Chat
+  │
+  ▼
+Message
+```
+
+Message creation flow:
+
+```
+User sends message
+      │
+      ▼
+Socket Server
+      │
+      ▼
+Message saved in database
+      │
+      ▼
+Receiver receives message instantly
+```
+
+---
+
+# 🧩 Enum Types
+
+EstateHub uses enums for property categorization.
+
+### Property Type
+
+```
+buy
+rent
+```
+
+### Property Category
+
+```
+apartment
+house
+condo
+land
+```
+
+These enums ensure consistent property classification across the platform.
+
+---
+
+# 🧰 Technology Stack
+
+## Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- Axios
+- React Router
+- React Leaflet
+- Formik
+- Yup
+
+---
+
+## Backend
+
+- Node.js
+- Express.js
+- Prisma ORM
+- MongoDB
+- JWT Authentication
+- bcrypt
+
+---
+
+## Real-Time Communication
+
+- Socket.io
+
+---
+
+## Media Storage
+
+- Cloudinary
+
+---
+
+# ⚙️ Environment Variables
+
+Create a `.env` file inside the **api folder**.
+
+Example format:
+
+```
+DATABASE_URL=your_database_connection
+JWT_SECRET_KEY=your_secret_key
+CLIENT_URL=http://localhost:5173
+```
+
+Example structure:
+
+```
+DATABASE_URL=mongodb+srv://<username>:<password>@cluster.mongodb.net/<database>
+JWT_SECRET_KEY=secure_secret_key
+CLIENT_URL=http://localhost:5173
+```
+
+⚠️ Never commit `.env` files to GitHub.
+
+---
+
+# 🛠 Installation
+
+Clone the repository.
+
+```
+git clone https://github.com/DepresseDeeZ/realEstate.git
+```
+
+Move into the project directory.
+
+```
 cd estatehub
+```
+
+---
+
+# ▶ Running Backend Server
+
+Navigate to the backend directory.
+
+```
+cd api
+```
+
+Install dependencies.
+
+```
 npm install
 ```
 
-## Usage
+Start development server.
 
-### Start the Backend Server
-
-Navigate to the backend directory and start the server:
-
-```bash
-cd backend
-npm start
 ```
-## Contributing
+npm run dev
+```
 
-We welcome contributions to enhance EstateHub! To contribute:
+Alternative command:
 
-- Fork the repository.
-- Create a new branch:
-  ```bash
-  git checkout -b feature/YourFeature
-  git commit -am 'Add new feature'
-  git push origin feature/YourFeature
-  ```
+```
+node --env-file .env api/app.js
+```
 
-## Credits & License
+---
 
-### Credits
+# 💻 Running Frontend
 
-- **React.js** - JavaScript library for building user interfaces.
-- **React Router** - Declarative routing for React.
-- **Tailwind CSS** - Utility-first CSS framework.
-- **Axios** - Promise-based HTTP client.
-- **Formik & Yup** - Form handling and validation tools.
-- **Leaflet** - Open-source JavaScript library for interactive maps.
-- **Node.js** - JavaScript runtime for server-side applications.
-- **Express.js** - Web framework for Node.js.
-- **Prisma** - ORM for database interactions.
-- **MongoDB** - NoSQL database.
-- **Mongoose** - ODM for MongoDB.
-- **JWT** - JSON Web Tokens for secure authentication.
-- **Socket.io** - Real-time communication library.
-- **Cloudinary** - Cloud service for media management.
-- **Vercel** - Frontend deployment platform.
-- **Heroku** - Backend deployment platform.
+Navigate to client directory.
 
-### License
+```
+cd client
+```
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+Install dependencies.
 
-## Contact
+```
+npm install
+```
 
-For any questions or suggestions, feel free to reach out:
+Start development server.
 
-- **Email**: umangraval749@gmail.com
-- **GitHub**: [DepresseDeeZ](https://github.com/DepresseDeeZ)
+```
+npm run dev
+```
 
+Frontend runs at:
+
+```
+http://localhost:5173
+```
+
+---
+
+# ⚡ Running Socket Server
+
+Navigate to socket folder.
+
+```
+cd socket
+```
+
+Install dependencies.
+
+```
+npm install
+```
+
+Run server.
+
+```
+node app.js
+```
+
+This server manages real-time messaging.
+
+---
+
+# 🌱 Seeding Database
+
+To populate the database with sample property listings run:
+
+```
+node --env-file .env seedPosts.js
+```
+
+This inserts example property data including posts and post details.
+
+---
+
+# 🔐 Security Practices
+
+The project follows several security practices:
+
+- JWT authentication
+- Password hashing with bcrypt
+- Environment variable protection
+- Secure API route validation
+
+---
+
+# 🚀 Performance Optimizations
+
+Several optimizations were implemented:
+
+- lazy loading components
+- efficient database queries
+- modular component architecture
+- optimized API calls
+
+---
+
+# 🔮 Future Improvements
+
+Planned enhancements include:
+
+- AI property recommendation system
+- map-based filtering
+- payment integration
+- property analytics dashboard
+- push notifications
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+# 👨‍💻 Author
+
+**Umang Raval**
+
+
+💻 GitHub  
+https://github.com/DepresseDeeZ
