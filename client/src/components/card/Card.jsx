@@ -67,7 +67,11 @@ function Card({ item, onDelete, onUpdate }) {
         </h2>
         <p className="text-sm text-gray-600 flex items-center gap-2 mt-2">
           <img src="/pin.png" alt="location icon" className="h-4 w-4" />
-          <span>{item.address}</span>
+          <span>City : {item.city}</span>
+        </p>
+        <p className="text-sm text-gray-600 flex items-center gap-2 mt-2">
+          {/* <img src="/pin.png" alt="location icon" className="h-4 w-4" /> */}
+          <span>Address : {item.address}</span>
         </p>
         <p className="text-lg font-semibold text-slate-700 mt-2">
           ${item.price.toLocaleString()}

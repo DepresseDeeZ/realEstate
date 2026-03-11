@@ -27,9 +27,6 @@ function SinglePage() {
     }
   };
 
-
-  
-
   return (
     <div className="singlePage">
       <div className="details">
@@ -41,7 +38,11 @@ function SinglePage() {
                 <h1>{post.title}</h1>
                 <div className="address">
                   <img src="/pin.png" alt="" />
-                  <span>{post.address}</span>
+                  City : <span>{post.city}</span>
+                </div>
+                <div className="address">
+                  {/* <img src="/pin.png" alt="" /> */}
+                  Address : <span>{post.address}</span>
                 </div>
                 <div className="price">$ {post.price}</div>
               </div>
