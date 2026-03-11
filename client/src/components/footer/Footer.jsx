@@ -61,7 +61,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-gray-300">
           <div className="flex justify-between items-center">
-            <p className="text-gray-600">&copy; 2024 EstateHub. All rights reserved.</p>
+            <p className="text-gray-600">&copy; 2026 EstateHub. All rights reserved.</p>
             <div className="flex space-x-4">
               {SOCIALS.links.map((link, index) => (
                 <Link key={index} to="/" className="text-gray-600 hover:text-gray-900 transition duration-300">

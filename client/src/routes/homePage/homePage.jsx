@@ -100,13 +100,14 @@ function HomePage() {
           <div className="textContainer">
             <div className="wrapper">
               <h1 className="title">
-                Your Trusted Gateway to Exceptional Real Estate Opportunities!
+                Discover Your Perfect Property with EstateHub
               </h1>
               <p>
-                Estate Hub connects you with top real estate opportunities, from
-                homes to investment properties. With a focus on transparency,
-                affordability, and personalized service, we help you find the
-                perfect property to match your needs.
+                EstateHub simplifies the way you find, rent, and buy properties.
+                Whether you're searching for a comfortable home, a rental
+                apartment, or a valuable real estate investment, our platform
+                connects you with verified listings and trusted opportunities
+                across multiple cities.
               </p>
               <SearchBar />
               <div className="boxes">
@@ -146,25 +147,30 @@ function HomePage() {
                 <RiDoubleQuotesL className="text-2xl" />
               </span>
               <p className="text-center relative bottom-3">
-                Need a new place to call home? Estate Hub offers a wide range of
-                rental properties to suit your needs.
+                Searching for the perfect place to live? EstateHub helps you
+                explore verified rental homes and apartments designed to match
+                your lifestyle and budget.
               </p>
             </div>
           </div>
           {/* Right Side */}
           <div className="flex-1 flex justify-center flex-col">
-            <span className="medium-18">Unveiling Our Journey</span>
+            <span className="medium-18">About EstateHub</span>
             <h2 className="h2">
-              Our Commitment Crafting Extraordinary Real Estate Experience
+              Delivering Reliable and Transparent Real Estate Solutions
             </h2>
             <p className="py-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis ullam sed minima vitae laboriosam doloremque et
-              eligendi dolore est quis? Excepturi hic sapiente voluptatum
-              voluptates aspernatur tempora voluptas quas repudiandae rerum.
-              Saepe repellat molestiae nostrum praesentium hic, impedit
-              quibusdam officia aspernatur sint doloremque mollitia commodi in
-              repudiandae, quaerat quasi a obcaecati similique.
+              EstateHub was created to make property discovery simple, reliable,
+              and accessible for everyone. Our platform connects buyers,
+              renters, and property owners through a seamless digital experience
+              designed to save time and eliminate uncertainty.
+              <br />
+              <br />
+              We focus on verified listings, transparent information, and
+              user-friendly search tools that help you explore properties with
+              confidence. Whether you're looking for a new home, a rental space,
+              or an investment opportunity, EstateHub is committed to helping
+              you make smarter real estate decisions.
             </p>
             {/* Statistics Container */}
             <div ref={ref} className="flex flex-wrap gap-4">
@@ -235,7 +241,7 @@ function HomePage() {
       {/* Blog */}
       <section className="max-padd-container py-16 xl:py-28">
         <h2 className="text-4xl font-bold text-center mb-12">
-          Our Expert Blogs
+          Real Estate Insights & Expert Guides
         </h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {BLOGS.map((blog) => (
@@ -262,9 +268,11 @@ function HomePage() {
                 {expandedBlog === blog.title && (
                   <div className="mt-4 text-white">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
+                      Explore expert insights, property market trends, and
+                      practical tips to help you make informed real estate
+                      decisions. Our blogs cover everything from buying your
+                      first home to understanding rental markets and property
+                      investments.
                     </p>
                   </div>
                 )}
@@ -282,10 +290,11 @@ function HomePage() {
       <footer className="bg-gradient-to-b from-gray-100 to-gray-200 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Explore real estate opportunities with us?
+            Ready to Find Your Next Property?
           </h2>
           <p className="text-gray-600 mb-8">
-            Discover your dream home in India.
+            Explore trusted property listings, discover new homes, and make
+            smarter real estate decisions with EstateHub.
           </p>
           <hr className="border-gray-300 mb-8" />
 
@@ -297,7 +306,9 @@ function HomePage() {
                 </span>
               </Link>
               <p className="text-gray-600 mb-4">
-                Trust EstateHub to guide you through your real estate journey.
+                EstateHub is your trusted platform for discovering verified
+                properties, exploring rental options, and finding investment
+                opportunities across multiple cities.
               </p>
               <div className="flex">
                 <input
@@ -347,7 +358,7 @@ function HomePage() {
           <div className="mt-8 pt-8 border-t border-gray-300">
             <div className="flex justify-between items-center">
               <p className="text-gray-600">
-                &copy; 2024 EstateHub. All rights reserved.
+                &copy; 2026 EstateHub. All rights reserved.
               </p>
               <div className="flex space-x-4">
                 {SOCIALS.links.map((link, index) => (
