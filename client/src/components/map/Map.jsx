@@ -31,7 +31,7 @@ function ChangeView({ items }) {
 function Map({ items }) {
   return (
     <MapContainer
-      center={[22.6708, 71.5724]}
+      center={[51.1657, 10.4515]}
       zoom={7}
       scrollWheelZoom={false}
       className="map"
