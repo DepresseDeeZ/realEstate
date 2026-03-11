@@ -1,264 +1,409 @@
 # EstateHub
 
+**Live Demo:**  
 https://real-estate-omega-five-23.vercel.app/
 
-Welcome to **EstateHub**! This project aims to create a dynamic and user-friendly online platform for property listings and transactions. EstateHub is designed to cater to real estate agents, property sellers, and potential buyers or renters, providing an intuitive interface for seamless interaction.
+EstateHub is a full-stack real estate platform designed to simplify the process of discovering, renting, and purchasing properties. The platform allows users to browse property listings, view detailed information about properties, explore property locations using interactive maps, and communicate with property owners or agents through a real-time messaging system.
 
-## Step-by-Step Development
+The project demonstrates modern full-stack development practices using **React, Node.js, Express, MongoDB, and cloud-based media storage**. It is designed to be modular, scalable, and suitable as a production-ready architecture for real estate listing platforms.
 
-### 1. **Project Setup**
-1. **Repository Initialization**:
-   - Created a new GitHub repository named `EstateHub`.
-   - Cloned the repository to the local machine using:
-     ```bash
-     git clone https://github.com/yourusername/estatehub.git
-     ```
+---
 
-2. **Directory Structure**:
-   - Structured the project with two main directories:
-     - `frontend`: For React-based user interface.
-     - `backend`: For Node.js and Express-based server-side logic.
+# Project Demo
 
-3. **Environment Setup**:
-   - Installed **Node.js** and npm on the system.
-   - Initialized `package.json` in both `frontend` and `backend` directories:
-     ```bash
-     npm init -y
-     ```
-   - Set up `.gitignore` to exclude `node_modules`, `.env`, and other sensitive files.
+The application is deployed and accessible at the following link:
 
+https://real-estate-omega-five-23.vercel.app/
 
-### 2. **Frontend Development**
-1. **Bootstrapping**:
-   - Created a React application using:
-     ```bash
-     npx create-react-app frontend
-     cd frontend
-     ```
+The demo includes:
 
-2. **Installing Dependencies**:
-   - Added essential libraries for the project:
-     ```bash
-     npm install react-router-dom axios tailwindcss formik yup leaflet react-leaflet
-     ```
+- Property search functionality
+- Rental and sale listings
+- Property detail pages
+- Interactive map visualization
+- User authentication
+- Real-time messaging system
 
-3. **Configuring Tailwind CSS**:
-   - Installed and set up Tailwind CSS:
-     ```bash
-     npm install -D tailwindcss postcss autoprefixer
-     npx tailwindcss init
-     ```
-   - Updated the `tailwind.config.js` file with custom paths.
-   - Integrated Tailwind CSS into `index.css`:
-     ```css
-     @tailwind base;
-     @tailwind components;
-     @tailwind utilities;
-     ```
+---
 
-4. **Building Components**:
-   - Created reusable components:
-     - **Navbar**: Responsive navigation with links to home, search, and user profile.
-     - **Footer**: Contact information and subscription options.
-     - **SearchBar**: Advanced search functionality with filters.
-   - Built key pages:
-     - **HomePage**: Hero section, featured listings, and call-to-action banners.
-     - **ListingPage**: Property search results with filters and sorting.
-     - **AgentProfile**: Display agent details and their active property listings.
-     - **PropertyDetailPage**: Show detailed information, images, and contact options.
+# Application Screenshots
 
-5. **Map Integration**:
-   - Integrated `Leaflet` for interactive maps:
-     ```bash
-     npm install leaflet react-leaflet
-     ```
-   - Displayed property locations using map markers.
+## Homepage
 
+![Homepage](docs/homepage.png)
 
-### 3. **Backend Development**
-1. **Setting Up Node.js and Express**:
-   - Installed backend dependencies:
-     ```bash
-     npm install express mongoose dotenv body-parser cors jsonwebtoken bcryptjs
-     ```
+The homepage introduces the platform with a search bar, featured properties, informational sections, and call-to-action components.
 
-2. **Database Configuration**:
-   - Installed and set up MongoDB:
-     - Created schemas using Mongoose:
-       - **User**: For user authentication and roles.
-       - **Property**: For property listings with location, price, and amenities.
-       - **Agent**: For agent profiles and linked properties.
-   - Connected to the database using:
-     ```javascript
-     const mongoose = require('mongoose');
-     mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-     ```
+---
 
-3. **Authentication**:
-   - Implemented secure authentication using **JWT**:
-     - Created login and registration routes.
-     - Enforced middleware for protected routes.
+## Property Listings
 
-4. **API Endpoints**:
-   - Designed RESTful APIs for:
-     - **Users**: Registration, login, and profile management.
-     - **Properties**: CRUD operations on property listings.
-     - **Agents**: Viewing and managing agent profiles.
-     - **Reviews**: Submitting and viewing user feedback.
+![Listings](docs/listings.png)
 
-5. **Real-Time Communication**:
-   - Integrated `Socket.io` for chat functionality:
-     ```bash
-     npm install socket.io
-     ```
-   - Enabled real-time messaging between users and agents/landlords.
+Users can explore available properties categorized by rental and sale listings. Listings include pricing, location, property type, and preview images.
 
+---
 
-### 4. **Integration**
-1. **Connecting Frontend and Backend**:
-   - Used **Axios** for API communication.
-   - Set up `proxy` in the frontend `package.json` to avoid CORS issues.
-   - Created reusable API service files for modular code.
+## Property Details
 
-2. **Testing**:
-   - Tested APIs using **Postman**.
-   - Verified seamless interaction between frontend and backend.
+![Property Details](docs/property-details.png)
 
-3. **Performance Optimization**:
-   - Lazy-loaded components to improve loading speed.
-   - Optimized database queries using Prisma for efficient data retrieval.
+Each property page displays detailed information including:
 
+- Property price
+- Property description
+- Amenities
+- Image gallery
+- Location map
+- Contact or messaging options
 
-### 5. **Media Management**
-- Integrated **Cloudinary** for image and video uploads:
-  - Configured API keys in `.env` file.
-  - Allowed users to upload property images via frontend forms.
+---
 
-### 6. **Final Testing and Feedback**
-- Conducted cross-browser testing to ensure compatibility.
-- Collected feedback for iterative improvements.
-- Fixed minor bugs and optimized UI/UX based on user input.
+# Project Objectives
 
+The main objectives of EstateHub are:
 
-## Summary
-EstateHub was developed as a robust and scalable platform for real estate transactions. It combines advanced search filters, real-time communication, and responsive design to offer a seamless user experience. The project is fully deployed and ready for users.
+- Provide an intuitive property discovery platform
+- Demonstrate modern full-stack development architecture
+- Implement scalable REST APIs
+- Integrate real-time messaging between users
+- Utilize cloud services for media management
+- Build a responsive interface for multiple devices
 
-For further details, refer to the full documentation included in the repository.
+---
 
+# System Architecture
 
-## Table of Contents
+EstateHub follows a standard **client-server architecture**.
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Technological Stack](#technological-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Credits & License](#credits--license)
-- [Contact](#contact)
+Frontend (React)
+↓
+REST API (Node.js / Express)
+↓
+Database (MongoDB)
 
-## Project Overview
+The frontend communicates with the backend through REST APIs using Axios.
 
-EstateHub will feature advanced search filters, interactive maps, detailed property listings, user reviews, agent profiles, and contact forms. It is built using modern web development practices to ensure a responsive and engaging user experience.
+Real-time communication features use **Socket.io**.
 
-## Features
+---
 
-- **Advanced Search Filters**: Search for properties by location, price, type, and amenities.
-- **Interactive Maps**: Use Mapbox and React Leaflet to view property locations and nearby amenities.
-- **Detailed Property Listings**: Display comprehensive details, images, and features of properties.
-- **User Reviews**: Allow users to read and submit reviews for properties and agents.
-- **Agent Profiles**: Showcase real estate agents with their profiles, contact information, and listings.
-- **Contact Forms**: Provide forms for inquiries and appointments.
+# Step-by-Step Development
 
-## Technological Stack
+## 1. Project Setup
 
-### Frontend
+### Repository Initialization
 
-- **React.js**: A JavaScript library for building user interfaces, providing a dynamic and responsive user experience.
-- **React Router**: Handles navigation within the application, enabling seamless page transitions.
-- **Tailwind CSS**: A utility-first CSS framework for creating custom designs quickly and efficiently.
-- **Axios**: A promise-based HTTP client for making API requests from the frontend.
-- **Formik/Yup**: Tools for handling form state and validation in React applications.
-- **Leaflet**: An open-source library for interactive maps, used with React for displaying property locations.
-
-### Backend
-
-- **Node.js**: A JavaScript runtime for building scalable server-side applications.
-- **Express.js**: A web application framework for Node.js, used to build the RESTful API.
-- **Prisma**: An ORM (Object-Relational Mapping) tool for working with databases in a type-safe manner.
-- **MongoDB**: A NoSQL database for storing property listings and user data.
-- **Mongoose**: An ODM (Object Data Modeling) library for MongoDB, facilitating schema-based data modeling.
-- **JWT (JSON Web Tokens)**: Used for secure authentication and protecting API endpoints.
-- **Socket.io**: A library for real-time web applications, enabling features like chat.
-
-### Other Technologies
-
-- **Cloudinary**: A cloud service for image and video management, used for handling property images.
-- **Git**: A version control system for tracking changes and collaboration.
-- **Vercel**: A platform for deploying and hosting the frontend application.
-- **Heroku**: A platform for deploying and managing the backend server.
-
-## Installation
-
-To get started with EstateHub, clone the repository and install the required dependencies:
+The project repository was created on GitHub and cloned to the local development environment.
 
 ```bash
-git clone https://github.com/yourusername/estatehub.git
-cd estatehub
-npm install
+git clone https://github.com/DepresseDeeZ/estatehub.git
 ```
 
-## Usage
+### Directory Structure
 
-### Start the Backend Server
+The project is divided into two main parts:
 
-Navigate to the backend directory and start the server:
+- **frontend** — React-based user interface
+- **backend** — Node.js and Express API server
+
+Example structure:
+
+```
+EstateHub
+│
+├── frontend
+│   ├── components
+│   ├── pages
+│   ├── hooks
+│   ├── context
+│   └── assets
+│
+├── backend
+│   ├── api
+│   ├── controllers
+│   ├── models
+│   ├── routes
+│   └── middleware
+│
+└── README.md
+```
+
+### Environment Setup
+
+Node.js and npm were installed and the project was initialized.
 
 ```bash
-cd backend
-npm start
+npm init -y
 ```
-## Contributing
 
-We welcome contributions to enhance EstateHub! To contribute:
+A `.gitignore` file was configured to exclude:
 
-- Fork the repository.
-- Create a new branch:
-  ```bash
-  git checkout -b feature/YourFeature
-  git commit -am 'Add new feature'
-  git push origin feature/YourFeature
-  ```
+- `node_modules`
+- `.env`
+- build directories
 
-## Credits & License
+---
 
-### Credits
+# Frontend Development
 
-- **React.js** - JavaScript library for building user interfaces.
-- **React Router** - Declarative routing for React.
-- **Tailwind CSS** - Utility-first CSS framework.
-- **Axios** - Promise-based HTTP client.
-- **Formik & Yup** - Form handling and validation tools.
-- **Leaflet** - Open-source JavaScript library for interactive maps.
-- **Node.js** - JavaScript runtime for server-side applications.
-- **Express.js** - Web framework for Node.js.
-- **Prisma** - ORM for database interactions.
-- **MongoDB** - NoSQL database.
-- **Mongoose** - ODM for MongoDB.
-- **JWT** - JSON Web Tokens for secure authentication.
-- **Socket.io** - Real-time communication library.
-- **Cloudinary** - Cloud service for media management.
-- **Vercel** - Frontend deployment platform.
-- **Heroku** - Backend deployment platform.
+## Bootstrapping the React Application
 
-### License
+The frontend application was created using React.
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+```bash
+npx create-react-app frontend
+cd frontend
+```
 
-## Contact
+## Installing Dependencies
 
-For any questions or suggestions, feel free to reach out:
+Essential libraries were installed to support routing, API communication, styling, form validation, and mapping functionality.
 
-- **Email**: umangraval749@gmail.com
-- **GitHub**: [DepresseDeeZ](https://github.com/DepresseDeeZ)
+```bash
+npm install react-router-dom axios tailwindcss formik yup leaflet react-leaflet
+```
 
+### Key Frontend Technologies
+
+| Technology | Purpose |
+|------------|--------|
+| React | UI development |
+| React Router | Client-side navigation |
+| Tailwind CSS | Utility-based styling |
+| Axios | API communication |
+| Formik / Yup | Form handling and validation |
+| React Leaflet | Interactive maps |
+
+---
+
+## Component Development
+
+Reusable components were created to maintain a modular architecture.
+
+### Core Components
+
+- **Navbar** — responsive navigation menu
+- **SearchBar** — property search interface
+- **PropertyCard** — reusable property display component
+- **Footer** — contact information and platform links
+
+### Main Pages
+
+- **HomePage** — landing page with featured listings
+- **ListingPage** — displays property search results
+- **PropertyDetailPage** — detailed property information
+- **AgentProfile** — agent details and listings
+
+---
+
+# Backend Development
+
+## Setting Up Node.js and Express
+
+Backend dependencies were installed.
+
+```bash
+npm install express mongoose dotenv body-parser cors jsonwebtoken bcryptjs socket.io
+```
+
+### Key Backend Technologies
+
+| Technology | Purpose |
+|------------|--------|
+| Node.js | Server runtime |
+| Express.js | REST API framework |
+| MongoDB | Database |
+| Mongoose | MongoDB data modeling |
+| JWT | Authentication |
+| Socket.io | Real-time messaging |
+
+---
+
+# Database Design
+
+The database includes several main collections:
+
+### Users
+
+Stores user authentication data.
+
+Fields include:
+
+- username
+- email
+- password
+- profile information
+
+### Properties (Posts)
+
+Stores property listings.
+
+Fields include:
+
+- title
+- price
+- location
+- type (rent / buy)
+- property images
+- description
+
+### Property Details
+
+Additional detailed data for properties such as:
+
+- amenities
+- room count
+- property size
+- nearby locations
+
+### Messages
+
+Used for real-time messaging between users.
+
+---
+
+# API Design
+
+The backend exposes RESTful endpoints for managing application data.
+
+Example endpoints:
+
+```
+POST /auth/register
+POST /auth/login
+GET /posts
+GET /posts/:id
+POST /posts
+DELETE /posts/:id
+```
+
+These APIs allow the frontend to interact with the database through secure HTTP requests.
+
+---
+
+# Environment Configuration
+
+Create a `.env` file in the backend directory.
+
+Example configuration:
+
+```env
+DATABASE_URL=your_mongodb_connection_string
+JWT_SECRET_KEY=your_secret_key
+CLIENT_URL=http://localhost:5173
+```
+
+Sensitive values should **never be committed to version control**.
+
+---
+
+# Running the Application
+
+## Start Backend
+
+Navigate to the backend directory.
+
+```bash
+npm run dev
+```
+
+Alternative command using Node:
+
+```bash
+node --env-file .env api/app.js
+```
+
+For debugging using Console Ninja:
+
+```bash
+console-ninja node --env-file .env --watch api/app.js
+```
+
+---
+
+## Start Frontend
+
+Navigate to the frontend directory.
+
+```bash
+npm run dev
+```
+
+The frontend typically runs on:
+
+```
+http://localhost:5173
+```
+
+---
+
+# Seeding Sample Property Data
+
+To populate the database with sample property listings run:
+
+```bash
+node --env-file .env seedPosts.js
+```
+
+This script inserts predefined property data into the database to allow testing without manual data entry.
+
+---
+
+# Messaging System
+
+EstateHub includes a real-time messaging feature that allows users to communicate with property owners or agents.
+
+The system is implemented using **Socket.io** and supports:
+
+- real-time message delivery
+- conversation tracking
+- message notifications
+
+Additional documentation:
+
+https://www.notion.so/How-the-chat-msg-work-320aa61c163080bfaf71e2813f58ac0e
+
+---
+
+# Deployment
+
+The project is deployed using:
+
+Frontend:
+
+Vercel
+
+Backend:
+
+Node server deployment (e.g., Heroku or similar platforms)
+
+---
+
+# Future Improvements
+
+Potential enhancements include:
+
+- payment integration
+- advanced property recommendation system
+- image optimization pipeline
+- improved property analytics dashboard
+- map-based property search filtering
+
+---
+
+# Summary
+
+EstateHub is a full-stack real estate application that demonstrates scalable architecture, modular frontend design, RESTful APIs, and real-time communication. The project showcases practical integration of modern web technologies to build a responsive and feature-rich real estate platform.
+
+---
+
+# Author
+
+Umang Raval
+
+Email  
+umangraval749@gmail.com
+
+GitHub  
+https://github.com/DepresseDeeZ
