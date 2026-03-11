@@ -136,7 +136,7 @@ Benefits include:
 
 ## 🏠 Homepage
 
-![Homepage](docs/homepage.png)
+![Homepage](https://github.com/user-attachments/assets/2047a500-90b6-4c42-ad1f-1d05c6eddebb)
 
 The homepage introduces users to the platform and includes:
 
@@ -149,7 +149,7 @@ The homepage introduces users to the platform and includes:
 
 ## 🏘 Property Listings
 
-![Listings](docs/listings.png)
+![Listings](https://github.com/user-attachments/assets/f88a91a5-84cc-44e8-8086-7da9f700f4c7)
 
 Users can browse available properties categorized by rental and sale listings.
 
@@ -164,8 +164,7 @@ Each property card displays:
 
 ## 📄 Property Details
 
-![Property Details](docs/property-details.png)
-
+![Property Details](https://github.com/user-attachments/assets/6fda5663-7af5-47d1-8e89-501609a209da)
 Detailed property pages include:
 
 - property gallery
