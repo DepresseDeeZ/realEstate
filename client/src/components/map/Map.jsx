@@ -32,7 +32,7 @@ function Map({ items }) {
   return (
     <MapContainer
       center={[51.1657, 10.4515]}
-      zoom={7}
+      zoom={6}
       scrollWheelZoom={false}
       className="map"
     >
