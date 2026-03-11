@@ -16,8 +16,14 @@ function SearchBar() {
     setQuery((prev) => ({ ...prev, type: val }));
   };
 
+  // const handleChange = (e) => {
+  //   setQuery((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  // };
   const handleChange = (e) => {
-    setQuery((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const value =
+      e.target.name === "city" ? e.target.value.toLowerCase() : e.target.value;
+
+    setQuery((prev) => ({ ...prev, [e.target.name]: value }));
   };
 
   return (
