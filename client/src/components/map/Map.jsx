@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
+import { useEffect } from "react";
 import "./map.scss";
 import "leaflet/dist/leaflet.css";
 import Pin from "../pin/Pin";
@@ -15,22 +16,33 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
+function ChangeView({ items }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (items.length === 1) {
+      map.flyTo([items[0].latitude, items[0].longitude], 13);
+    }
+  }, [items, map]);
+
+  return null;
+}
+
 function Map({ items }) {
   return (
     <MapContainer
-      center={
-        items.length === 1
-          ? [items[0].latitude, items[0].longitude]
-          : [22.6708, 71.5724]
-      }
+      center={[22.6708, 71.5724]}
       zoom={7}
       scrollWheelZoom={false}
       className="map"
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution="&copy; OpenStreetMap contributors"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+
+      <ChangeView items={items} />
+
       {items.map((item) => (
         <Pin item={item} key={item.id} />
       ))}
